@@ -4,7 +4,8 @@ const router = require('./router')
 const buildApp = async (options = {}) => {
   const app = Fastify(options)
 
-  router.roomTypesRoutes(app)
+  router.RoomTypeRoutes(app)
+  router.RoomRoutes(app)
 
   return app
 }

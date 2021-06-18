@@ -1,5 +1,7 @@
-const roomTypes = require('./room_types')
+const RoomType = require('./room_type')
+const Room = require('./room')
 
 module.exports = {
-  roomTypes,
+  RoomType,
+  Room,
 }
