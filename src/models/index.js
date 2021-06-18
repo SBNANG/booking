@@ -1,7 +1,11 @@
-const roomType = require('./room_types')
-const database = require('./database')
+const RoomType = require('./room_type')
+const Room = require('./room')
+const { sequelize, syncAll, syncOneToMany } = require('./database')
 
 module.exports = {
-  database,
-  roomType,
+  sequelize,
+  syncAll,
+  syncOneToMany,
+  RoomType,
+  Room,
 }

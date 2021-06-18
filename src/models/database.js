@@ -12,8 +12,20 @@ const sequelize = new Sequelize(
   }
 )
 
-async function syncAll() {
-  await sequelize.sync({ force: true })
+async function syncAll(force = false) {
+  await sequelize.sync({ force: force })
 }
 
-module.exports = { sequelize, syncAll }
+async function syncOneToMany(One, Many, fieldName) {
+  One.hasMany(Many, {
+    foreignKey: {
+      name: fieldName,
+      field: fieldName,
+      allowNull: false,
+    },
+    onDelete: 'RESTRICT',
+    onUpdate: 'CASCADE',
+  })
+}
+
+module.exports = { sequelize, syncAll, syncOneToMany }
