@@ -62,11 +62,17 @@ const editRoom = async (req, reply) => {
 const deleteRoom = async (req, reply) => {
   const id = req.params.id
 
-  await Room.findByPk(id)
+  const room = await Room.findByPk(id)
+  if (room === null) {
+    reply.code(400).send({
+      status: 'fail',
+      message: 'ไม่มี',
+    })
+  }
 
   await Room.destroy({ where: { id: id } })
 
-  reply.statusCode = 204
+  reply.code(204)
 }
 
 module.exports = {
