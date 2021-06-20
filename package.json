@@ -6,6 +6,7 @@
   "author": "Suhana Busamart",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "fastify": "^3.18.0",
     "mysql2": "^2.2.5",
