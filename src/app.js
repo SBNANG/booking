@@ -6,6 +6,7 @@ const buildApp = async (options = {}) => {
 
   router.RoomTypeRoutes(app)
   router.RoomRoutes(app)
+  router.CustomerRoutes(app)
 
   return app
 }
