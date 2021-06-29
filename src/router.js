@@ -1,4 +1,4 @@
-const { RoomType, Room, Customer } = require('./controllers')
+const { RoomType, Room, Customer, Authority } = require('./controllers')
 
 const RoomTypeRoutes = (app) => {
   app.get('/room_types', RoomType.getRoomTypes)
@@ -24,8 +24,17 @@ const CustomerRoutes = (app) => {
   app.delete('/customers/:id', Customer.deleteCustomer)
 }
 
+const AuthorityRoutes = (app) => {
+  app.get('/authorities', Authority.getAuthories)
+  app.get('/authorities/:id', Authority.getAuthority)
+  app.post('/authorities', Authority.addAuthority)
+  app.put('/authorities/:id', Authority.editAuthority)
+  app.delete('/authorities/:id', Authority.deleteAuthority)
+}
+
 module.exports = {
   RoomTypeRoutes,
   RoomRoutes,
   CustomerRoutes,
+  AuthorityRoutes,
 }
